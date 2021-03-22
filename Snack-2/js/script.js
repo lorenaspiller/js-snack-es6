@@ -33,31 +33,38 @@ function randomNumber (min, max) {
   return random;
 }
 
-for (let i = 0; i < squadreCalcio.length; i++) {
-  squadreCalcio[i].puntiFatti = randomNumber (1, 12);
-  squadreCalcio[i].falliSubiti = randomNumber (1, 80);
-}
+// for (let i = 0; i < squadreCalcio.length; i++) {
+//   squadreCalcio[i].puntiFatti = randomNumber (1, 12);
+//   squadreCalcio[i].falliSubiti = randomNumber (1, 80);
+// }
+
+
 
 console.log(squadreCalcio);
 
 
 // 3 step
-const nuovoSquadreCalcio = [];
+// const nuovoSquadreCalcio = [];
+//
+// for (let i = 0; i < squadreCalcio.length; i++) {
+//   const{nome, falliSubiti} = squadreCalcio[i];
+//
+//   let squadra = (
+//     {
+//       nome : nome,
+//       falliSubiti: falliSubiti
+//     }
+//   );
+//
+//   nuovoSquadreCalcio.push(squadra);
+// }
 
-for (let i = 0; i < squadreCalcio.length; i++) {
-  const{nome, falliSubiti} = squadreCalcio[i];
-
-  let squadra = (
-    {
-      nome : nome,
-      falliSubiti: falliSubiti
-    }
-  );
-
-  nuovoSquadreCalcio.push(squadra);
-
-}
-
-
+// 2 step uso la funzione map
+const nuovoSquadreCalcio = squadreCalcio.map((squadra) => {
+  squadra.puntiFatti = randomNumber (1, 12);
+  squadra.falliSubiti = randomNumber (1, 80);
+  // const {nome, falliSubiti} = squadra;
+  return {squadra : squadra.nome, falli : squadra.falliSubiti};
+});
 
 console.log(nuovoSquadreCalcio);
